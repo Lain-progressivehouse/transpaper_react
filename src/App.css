@@ -31,3 +31,19 @@
     transform: rotate(360deg);
   }
 }
+
+.inputFileBtnHide {
+  opacity:0;
+  appearance: none;
+  position: absolute;
+}
+
+.react-pdf__Page__canvas {
+  max-width: 50%;
+  /*background-color: #eee8aa;*/
+  margin: 0 auto;
+}
+
+.react-pdf__Page {
+  height: 300px;
+}
