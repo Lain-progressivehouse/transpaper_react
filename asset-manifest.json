@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/react-pages/static/css/main.7fbe17b3.chunk.css",
+    "main.js": "/react-pages/static/js/main.91e38ad6.chunk.js",
+    "main.js.map": "/react-pages/static/js/main.91e38ad6.chunk.js.map",
+    "runtime~main.js": "/react-pages/static/js/runtime~main.2afdb07a.js",
+    "runtime~main.js.map": "/react-pages/static/js/runtime~main.2afdb07a.js.map",
+    "static/css/2.e45ac127.chunk.css": "/react-pages/static/css/2.e45ac127.chunk.css",
+    "static/js/2.be64c126.chunk.js": "/react-pages/static/js/2.be64c126.chunk.js",
+    "static/js/2.be64c126.chunk.js.map": "/react-pages/static/js/2.be64c126.chunk.js.map",
+    "index.html": "/react-pages/index.html",
+    "precache-manifest.c078346bb30727c5248d0c72cdf8c9c3.js": "/react-pages/precache-manifest.c078346bb30727c5248d0c72cdf8c9c3.js",
+    "service-worker.js": "/react-pages/service-worker.js",
+    "static/css/2.e45ac127.chunk.css.map": "/react-pages/static/css/2.e45ac127.chunk.css.map",
+    "static/css/main.7fbe17b3.chunk.css.map": "/react-pages/static/css/main.7fbe17b3.chunk.css.map",
+    "static/media/semantic.min.css": "/react-pages/static/media/outline-icons.ef60a4f6.woff"
+  }
+}
