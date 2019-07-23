@@ -10,7 +10,6 @@
     "@types/react-pdf": "^4.0.0",
     "axios": "^0.19.0",
     "eslint-plugin-ja": "^0.1.0",
-    "gh-pages": "^2.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-pdf": "^4.1.0",
@@ -19,9 +18,7 @@
     "semantic-ui-react": "^0.87.3",
     "typescript": "3.5.3"
   },
-
-  "homepage": "http://Lain-progressivehouse.github.io/transpaper_react",
-
+  "homepage": "http://lain-progressivehouse.github.io/transpaper_react",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -44,5 +41,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
   }
 }
