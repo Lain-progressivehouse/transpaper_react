@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/react-pages/static/css/main.7fbe17b3.chunk.css",
-    "main.js": "/react-pages/static/js/main.91e38ad6.chunk.js",
-    "main.js.map": "/react-pages/static/js/main.91e38ad6.chunk.js.map",
-    "runtime~main.js": "/react-pages/static/js/runtime~main.2afdb07a.js",
-    "runtime~main.js.map": "/react-pages/static/js/runtime~main.2afdb07a.js.map",
-    "static/css/2.e45ac127.chunk.css": "/react-pages/static/css/2.e45ac127.chunk.css",
-    "static/js/2.be64c126.chunk.js": "/react-pages/static/js/2.be64c126.chunk.js",
-    "static/js/2.be64c126.chunk.js.map": "/react-pages/static/js/2.be64c126.chunk.js.map",
-    "index.html": "/react-pages/index.html",
-    "precache-manifest.c078346bb30727c5248d0c72cdf8c9c3.js": "/react-pages/precache-manifest.c078346bb30727c5248d0c72cdf8c9c3.js",
-    "service-worker.js": "/react-pages/service-worker.js",
-    "static/css/2.e45ac127.chunk.css.map": "/react-pages/static/css/2.e45ac127.chunk.css.map",
-    "static/css/main.7fbe17b3.chunk.css.map": "/react-pages/static/css/main.7fbe17b3.chunk.css.map",
-    "static/media/semantic.min.css": "/react-pages/static/media/outline-icons.ef60a4f6.woff"
+    "main.css": "/transpaper_react/static/css/main.7fbe17b3.chunk.css",
+    "main.js": "/transpaper_react/static/js/main.1d0ee5b7.chunk.js",
+    "main.js.map": "/transpaper_react/static/js/main.1d0ee5b7.chunk.js.map",
+    "runtime~main.js": "/transpaper_react/static/js/runtime~main.0df20319.js",
+    "runtime~main.js.map": "/transpaper_react/static/js/runtime~main.0df20319.js.map",
+    "static/css/2.3a74f068.chunk.css": "/transpaper_react/static/css/2.3a74f068.chunk.css",
+    "static/js/2.be64c126.chunk.js": "/transpaper_react/static/js/2.be64c126.chunk.js",
+    "static/js/2.be64c126.chunk.js.map": "/transpaper_react/static/js/2.be64c126.chunk.js.map",
+    "index.html": "/transpaper_react/index.html",
+    "precache-manifest.fc7d11970aa0d3f54345b87f0a40f702.js": "/transpaper_react/precache-manifest.fc7d11970aa0d3f54345b87f0a40f702.js",
+    "service-worker.js": "/transpaper_react/service-worker.js",
+    "static/css/2.3a74f068.chunk.css.map": "/transpaper_react/static/css/2.3a74f068.chunk.css.map",
+    "static/css/main.7fbe17b3.chunk.css.map": "/transpaper_react/static/css/main.7fbe17b3.chunk.css.map",
+    "static/media/semantic.min.css": "/transpaper_react/static/media/outline-icons.ef60a4f6.woff"
   }
 }
