@@ -1,7 +1,7 @@
-import React, {ChangeEvent, useCallback, useState} from 'react';
+import React, {ChangeEvent, useState} from 'react';
 // @ts-ignore
 import {Document, Page, pdfjs} from "react-pdf";
-import {Button, Container, Header, Icon, Segment, Form, TextArea} from "semantic-ui-react";
+import {Button, Container, Dimmer, Header, Icon, Loader, Segment} from "semantic-ui-react";
 import axios from "axios";
 
 import './App.css';
@@ -21,24 +21,24 @@ const App: React.FC = () => {
     if (e.target.files) {
       const file = e.target.files[0];
       setSendFile(file);
-      const reader = new FileReader()
+      const reader = new FileReader();
       if (file)
-        reader.readAsDataURL(file)
+        reader.readAsDataURL(file);
       reader.onload = () => {
         setBase(reader.result);
         setName(file.name);
       }
     }
-  }
+  };
 
   // @ts-ignore
   const handleDocumentLoad = ({numPages}) => {
     setNumPages(numPages)
-  }
+  };
 
   const handleButtonClick = (page: number) => {
     setPage(page);
-  }
+  };
 
   const sendPDF = () => {
     if (sendFile && !isLoading) {
@@ -54,8 +54,7 @@ const App: React.FC = () => {
           },
         }
       ).then((result) => { // 成功した場合
-        console.log(result.data)
-        setResult(result)
+        setResult(result);
         setIsLoading(false);
       })
         .catch(() => {
@@ -64,9 +63,23 @@ const App: React.FC = () => {
         });
     } else {
       // ファイルがロードされていないorファイル送信中
-      console.log('ファイルがロードされていないorファイル送信中')
+      console.log('ファイルがロードされていないorファイル送信中');
     }
-  }
+  };
+
+  const download = () => {
+    if (name) {
+      let baseName = new String(name).substring(name.lastIndexOf('/') + 1)
+      if(baseName.lastIndexOf(".") != -1)
+        baseName = baseName.substring(0, baseName.lastIndexOf("."));
+      const element = document.createElement("a");
+      const file = new Blob([result.data], {type: 'text/plain'});
+      element.href = URL.createObjectURL(file);
+      element.download = baseName + ".txt";
+      document.body.appendChild(element); // Required for this to work in FireFox
+      element.click();
+    }
+  };
 
   return (
     <div className="component">
@@ -76,7 +89,6 @@ const App: React.FC = () => {
             <Icon name="file pdf"/>
             <Document
               file={base}
-              // style={{border: 'dotted 1px #aaa'}}
               onLoadSuccess={handleDocumentLoad}
             >
               <Page
@@ -85,7 +97,6 @@ const App: React.FC = () => {
                 renderAnnotationLayer={false}
                 renderTextLayer={false}
                 renderInteractiveForms={true}
-                // style={{border: 'solid 2px #000', height: 300}}
               />
             </Document>
             <div>{name}</div>
@@ -101,22 +112,33 @@ const App: React.FC = () => {
               >Next</Button>
             </div>
           </Header>
-          <Button primary>
-            <input type="file" onChange={(e) => handleChange(e)} className="inputFileBtnHide"/>
-            Add Document
-          </Button>
-          <Button primary onClick={sendPDF}>
-            {/*<input type="submit" onClick={sendPDF} className="inputFileBtnHide"/>*/}
-            Send Document
-          </Button>
         </Segment>
-      </Container>
 
+        <Button primary>
+          <input type="file" accept=".pdf" onChange={(e) => handleChange(e)} className="inputFileBtnHide"/>
+          Add Document
+        </Button>
+        <br/>
+        <br/>
+        <Button primary disabled={!base} onClick={sendPDF}>
+          Send Document
+        </Button>
+
+        <br/>
+        <br/>
+        <Button primary disabled={!result} onClick={download}>
+          Download
+        </Button>
+
+      </Container>
+      <Dimmer active={isLoading} inverted>
+        <Loader size='large'>Loading</Loader>
+      </Dimmer>
       {/*<Form>*/}
       {/*  <TextArea placeholder='Tell us more' style={{ minHeight: 100 }} value={result || result.data}/>*/}
       {/*</Form>*/}
     </div>
   );
-}
+};
 
 export default App;
