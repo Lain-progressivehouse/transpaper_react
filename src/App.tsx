@@ -1,7 +1,7 @@
 import React, {ChangeEvent, useState} from 'react';
 // @ts-ignore
 import {Document, Page, pdfjs} from "react-pdf";
-import {Button, Container, Dimmer, Header, Icon, Loader, Segment} from "semantic-ui-react";
+import {Button, Container, Dimmer, Header, Icon, Loader, Segment, Input} from "semantic-ui-react";
 import axios from "axios";
 
 import './App.css';
@@ -70,7 +70,7 @@ const App: React.FC = () => {
   const download = () => {
     if (name) {
       let baseName = new String(name).substring(name.lastIndexOf('/') + 1)
-      if(baseName.lastIndexOf(".") != -1)
+      if (baseName.lastIndexOf(".") != -1)
         baseName = baseName.substring(0, baseName.lastIndexOf("."));
       const element = document.createElement("a");
       const file = new Blob([result.data], {type: 'text/plain'});
@@ -114,21 +114,28 @@ const App: React.FC = () => {
           </Header>
         </Segment>
 
-        <Button primary>
-          <input type="file" accept=".pdf" onChange={(e) => handleChange(e)} className="inputFileBtnHide"/>
-          Add Document
-        </Button>
-        <br/>
-        <br/>
-        <Button primary disabled={!base} onClick={sendPDF}>
-          Send Document
-        </Button>
+        <Container style={{marginTop: '7em'}}>
+          <Segment className="ui three wide widescreen buttons">
+            <Button primary className="ui centered">
+              <input type="file" accept=".pdf" onChange={(e) => handleChange(e)} className="inputFileBtnHide"/>
+              <Icon name="upload"/>
+              Add Document
+            </Button>
+            <br/>
+            <br/>
+            <Button primary disabled={!base} onClick={sendPDF}>
+              <Icon name="cloud upload"/>
+              Send Document
+            </Button>
 
-        <br/>
-        <br/>
-        <Button primary disabled={!result} onClick={download}>
-          Download
-        </Button>
+            <br/>
+            <br/>
+            <Button primary disabled={!result} onClick={download}>
+              <Icon name="download"/>
+              Download
+            </Button>
+          </Segment>
+        </Container>
 
       </Container>
       <Dimmer active={isLoading} inverted>
