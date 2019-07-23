@@ -1,7 +1,7 @@
 import React, {ChangeEvent, useCallback, useState} from 'react';
 // @ts-ignore
 import {Document, Page, pdfjs} from "react-pdf";
-import {Button, Container, Header, Icon, Segment} from "semantic-ui-react";
+import {Button, Container, Header, Icon, Segment, Form, TextArea} from "semantic-ui-react";
 import axios from "axios";
 
 import './App.css';
@@ -15,6 +15,7 @@ const App: React.FC = () => {
   const [numPages, setNumPages] = useState<number | null>(null);
   const [sendFile, setSendFile] = useState<File | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [result, setResult] = useState<any | null>(null);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -40,7 +41,7 @@ const App: React.FC = () => {
   }
 
   const sendPDF = () => {
-    if (sendFile) {
+    if (sendFile && !isLoading) {
       setIsLoading(true);
       const params = new FormData();
       params.append("file", sendFile);
@@ -52,14 +53,18 @@ const App: React.FC = () => {
             'content-type': 'multipart/form-data',
           },
         }
-      ).then((result) => {
-        console.log(result)
+      ).then((result) => { // 成功した場合
+        console.log(result.data)
+        setResult(result)
         setIsLoading(false);
       })
         .catch(() => {
           console.log('upload failed...');
           setIsLoading(false);
         });
+    } else {
+      // ファイルがロードされていないorファイル送信中
+      console.log('ファイルがロードされていないorファイル送信中')
     }
   }
 
@@ -100,12 +105,16 @@ const App: React.FC = () => {
             <input type="file" onChange={(e) => handleChange(e)} className="inputFileBtnHide"/>
             Add Document
           </Button>
-          <Button primary>
-            <input type="submit" onClick={sendPDF} className="inputFileBtnHide"/>
+          <Button primary onClick={sendPDF}>
+            {/*<input type="submit" onClick={sendPDF} className="inputFileBtnHide"/>*/}
             Send Document
           </Button>
         </Segment>
       </Container>
+
+      {/*<Form>*/}
+      {/*  <TextArea placeholder='Tell us more' style={{ minHeight: 100 }} value={result || result.data}/>*/}
+      {/*</Form>*/}
     </div>
   );
 }
