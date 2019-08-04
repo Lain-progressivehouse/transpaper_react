@@ -18,7 +18,7 @@
     "semantic-ui-react": "^0.87.3",
     "typescript": "3.5.3"
   },
-  "homepage": "http://lain-progressivehouse.github.io/transpaper_react",
+  "homepage": "https://lain-progressivehouse.github.io/transpaper_react/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
